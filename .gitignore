@@ -41,6 +41,10 @@ __queuestorage__
 __azurite_db*__.json
 *.publishsettings
 
+# Deployment files
+publish/
+*.zip
+
 # Node
 node_modules/
 
