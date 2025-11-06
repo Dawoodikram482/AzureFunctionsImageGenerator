@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "baseName": {
+      "value": "weatherimg"
+    },
+    "pixabayApiKey": {
+      "value": "53125748-0421e0c9cd1eeca808768f513"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+### Weather Image Generator API Documentation
+### Deployed Azure Function App (Publicly Accessible - No Authentication Required)
+
+@functionAppUrl = https://weatherimg693430-func.azurewebsites.net
+
+### 1. Start a new image generation job
+POST {{functionAppUrl}}/api/jobs
+Content-Type: application/json
+
+###
+
+### 2. Get job status (replace {jobId} with actual job ID from step 1)
+GET {{functionAppUrl}}/api/jobs/f5797284-af59-449e-9328-d059753ac6ca
+
+###
+
+### Example: Complete workflow
+### Step 1: Start job
+POST {{functionAppUrl}}/api/jobs
+Content-Type: application/json
+
+# Expected Response (202 Accepted):
+# {
+#   "jobId": "95902193-87f2-424d-8c70-036a4a5d4411",
+#   "message": "Job created successfully",
+#   "statusUrl": "https://weatherimg693430-func.azurewebsites.net/api/jobs/95902193-87f2-424d-8c70-036a4a5d4411"
+# }
+
+###
+
+### Step 2: Check job status (use jobId from previous response)
+GET {{functionAppUrl}}/api/jobs/95902193-87f2-424d-8c70-036a4a5d4411
+
+# Expected Response (200 OK):
+# {
+#   "jobId": "95902193-87f2-424d-8c70-036a4a5d4411",
+#   "status": "processing",  // or "queued", "completed", "failed"
+#   "totalStations": 40,
+#   "processedStations": 25,
+#   "progressPercentage": 62,
+#   "createdAt": "2025-11-06T10:00:00Z",
+#   "completedAt": null,
+#   "imageUrls": [
+#     "https://weatherimg6b7ep5xsavvfse.blob.core.windows.net/weather-images/jobid/6240.jpg",
+#     "https://weatherimg6b7ep5xsavvfse.blob.core.windows.net/weather-images/jobid/6260.jpg"
+#   ],
+#   "errorMessage": null
+# }
+
+###

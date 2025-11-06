@@ -1,0 +1,15 @@
+### Local Development Testing
+### Use these endpoints when running locally with Azure Functions Core Tools
+
+@localUrl = http://localhost:7071
+
+### 1. Start a new image generation job (local)
+POST {{localUrl}}/api/jobs
+Content-Type: application/json
+
+###
+
+### 2. Get job status (local) - replace {jobId} with actual job ID
+GET {{localUrl}}/api/jobs/d03ce866-0b94-4660-b033-b1193c2f3a90
+
+###
